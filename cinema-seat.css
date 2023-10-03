@@ -1,0 +1,65 @@
+/* Style the seat container */
+.seat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-color: red;
+    max-width: 70vw;
+}
+
+/* Style the row container */
+.row-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+/* Style the individual seats */
+.seat {
+    width: 3vw;
+    height: 3vh;
+    margin: .5vh .5vw;
+    text-align: center;
+    background-color: #6f6e6e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the selected seats */
+.seat.selected {
+    background-color: #bada55;
+}
+
+/* Style the unavailable seats */
+.seat.unavailable {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+/* Style the seat labels */
+.seat-label {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: calc(.5vw + .5vh);
+    margin: 0 auto;
+    
+}
+
+/* Style the screen */
+.screen {
+    width: 75vw;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    margin: 1rem auto;
+}
+
+/* Style the book button */
+#book-btn {
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 20px;
+}
