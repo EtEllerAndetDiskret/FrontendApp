@@ -18,8 +18,8 @@ async function loadMovies() {
                 <div id="blur-overlay">
                     <div id="banner-container">
                     
-                        <a href=""><div class="banner" id="read-more">Læs mere</div></a>
-                        <div class="banner" id="find-ticket">Find billet</div>
+                        <a style="text-decoration:none" href=""><div class="banner" id="read-more">Læs mere</div></a>
+                        <a style="text-decoration:none" href=""><div class="banner" id="find-ticket">Find billet</div></a>
                     </div>
                 </div>
             </div>
