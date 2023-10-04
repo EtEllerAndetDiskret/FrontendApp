@@ -5,7 +5,7 @@ import {
     setActiveLink, loadHtml, renderHtml} from "./utils.js"
     // Bare en template, da vi ikke har oprettet functionen initmovies endnu
     import {initMovies} from "./pages/movies/movies.js" 
-import { Navigo } from "./navigo.js"x
+import { Navigo } from "./navigo.js"
 
   window.addEventListener("load", async() => {
     const templateMovies = await loadHtml("./pages/movies/movies.html")
