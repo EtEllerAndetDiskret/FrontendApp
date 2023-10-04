@@ -1,11 +1,26 @@
+.theater-n-clicked-seats{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 1000px;
+        width: 80vw;
+    height: 100vh;
+}
+.booking-container{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    align-items: center;
+    margin: 0 3rem;
+    height: 80vh;
+}
+
 /* Style the seat container */
 .seat-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-    background-color: red;
-    max-width: 70vw;
+    margin: 20px;
 }
 
 /* Style the row container */
@@ -13,52 +28,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
 }
 
 /* Style the individual seats */
 .seat {
-    width: 3vw;
-    height: 3vh;
-    margin: .5vh .5vw;
-    text-align: center;
-    background-color: #6f6e6e;
-    border-radius: 5px;
+    width: 4vh;
+    height: 2vh;
+    margin: 4px;
+    background-color: #0dc426;
+    border-radius: 2px;
     cursor: pointer;
 }
 
 /* Style the selected seats */
 .seat.selected {
-    background-color: #bada55;
+    background-color: #fff;
+    border: 2px solid #041ddd;
+    margin: 2px;
 }
 
 /* Style the unavailable seats */
-.seat.unavailable {
-    background-color: #666;
+.seat.booked {
+    background-color: #f20808;
     cursor: not-allowed;
-}
-
-/* Style the seat labels */
-.seat-label {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: calc(.5vw + .5vh);
-    margin: 0 auto;
-    
 }
 
 /* Style the screen */
 .screen {
-    width: 75vw;
+    width: 100%;
     height: 50px;
     background-color: #333;
     color: #fff;
     text-align: center;
     font-size: 24px;
-    margin: 1rem auto;
+    margin-bottom: 20px;
 }
 
-/* Style the book button */
-#book-btn {
+
+/* Style the selected seats label */
+.selected-seats-label {
+    
+    border: #041ddd 2px solid;
+    font-size: 18px;
+    font-weight: bold;
+        padding: 10px;
+        margin-top: 20px;
+    
+}
+
+/* Style the confirmation button */
+.confirm-btn {
     font-size: 18px;
     padding: 10px;
     margin-top: 20px;
