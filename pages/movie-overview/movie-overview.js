@@ -1,12 +1,12 @@
-const movieURL = "http://localhost:8080/api/movies";
+import { API_URL } from "../../settings.js";
 
-initMovies();
-async function initMovies() {
+export async function initMovies() {
 	await loadMovies();
 }
 
 async function loadMovies() {
-	const movies = await fetch(movieURL).then((res) => res.json());
+	const movies = await fetch(API_URL + "/movies").then((res) => res.json());
+	console.log(movies);
 	const moviePreviews = movies.map(
 		//TODO: [KINO-36] When navigo router is set up, the links should be done via router and eventbubling
 		(movie) => `
@@ -17,9 +17,8 @@ async function loadMovies() {
                 />
                 <div id="blur-overlay">
                     <div id="banner-container">
-                    
-                        <a style="text-decoration:none" href="../movie-detailed/movie-detailed.html"><div class="banner" id="read-more">Læs mere</div></a>
-                        <a style="text-decoration:none" href=""><div class="banner" id="find-ticket">Find billet</div></a>
+                        <a href="#/movies/${movie.imdbID}"><div class="banner" id="read-more">Læs mere</div></a>
+                        <div class="banner" id="find-ticket">Find billet</div>
                     </div>
                 </div>
             </div>
