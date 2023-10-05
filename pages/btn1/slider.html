@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="index.js" type="module"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="carrousel">
+       
+        <div class="swiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide img"><img src="/pages/btn1/jaws2.jpg"></div>
+        <div class="swiper-slide img"><img src="/pages/btn1/pulpF.png"></div>
+        <div class="swiper-slide img"><img src="/pages/btn1/avengers.png"></div>
+        <div class="swiper-slide img"><img src="/pages/btn1/The-godfather.png"></div>
+        <div class="swiper-slide img"><img src="/pages/btn1/aladdinCrop1.png"></div>
+        <div class="swiper-slide img"><img src="/pages/btn1/grandBudapest3.png"></div>
+        
+        </div>
+        </div>
+    </div>    
+        <div class="swiper-pagination"></div> 
+    
+      
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+        
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>  
+
+
+</div>    
+<script src="http://unpkg.com/swiper@7/swiper-bundle.min.js"></script> 
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+   
+    loop: true,
+  
+ 
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+  
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });   
+</script>
+</body>
+</html>
