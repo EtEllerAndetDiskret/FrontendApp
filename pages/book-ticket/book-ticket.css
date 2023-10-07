@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('BiografSædder.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: bold;
+}
+
+input[type="date"],
+input[type="time"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
