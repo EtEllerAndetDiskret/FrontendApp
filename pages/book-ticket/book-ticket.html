@@ -3,30 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book ticket</title>
+    <title>Booking</title>
     <link rel="stylesheet" href="book-ticket.css">
-<style>
-    body {
-        background-image: url('BiografSædder.png');
-    }
-</style>
 </head>
 <body>
-    
-    </body>
-    <h1>Book din billet</h1>
-    <form>
-        <label for="date">Vælg dato:</label>
-        <input type="date" id="date" name="date">
+    <div class="background"></div>
+    <div class="booking-container">
+        <h1>Vælg venligst den dato du vil se film:</h1>
+        <div class="date-time">
+            <label for="date">Dato:</label>
+            <input type="date" id="date" name="date">
+            
+        </div>
         <br>
-        <br>
-        <label for="time">Vælg tidspunkt</label>
-        <input type="time" id="time" name="time">
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    <script src="book-ticket.js"></script>
-    
+        <a href="/pages/theater/cinemaseat.html" class="button">Book billet</a>
+    </div>
 </body>
 </html>

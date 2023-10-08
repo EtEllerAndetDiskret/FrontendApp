@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded",function() {
     const form = document.querySelector("form");
 
@@ -14,3 +15,4 @@ document.addEventListener("DOMContentLoaded",function() {
     console.log("Valgt tidspunkt", selectedTime)
     });
 });
+*/
