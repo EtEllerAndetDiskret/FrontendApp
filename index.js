@@ -5,6 +5,7 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
+import { initShowings } from "./pages/showings-of-movie/showings.js";
 
 window.addEventListener("load", async () => {
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
@@ -13,6 +14,9 @@ window.addEventListener("load", async () => {
 	);
 	const movieDetailed = await loadHtml(
 		"./pages/movie-detailed/movie-detailed.html"
+	);
+	const movieShowings = await loadHtml(
+		"./pages/showings-of-movie/showings.html"
 	);
 
 	const router = new Navigo("/", { hash: true });
@@ -40,6 +44,11 @@ window.addEventListener("load", async () => {
 			"/movies": () => {
 				renderHtml(allMovies, "content");
 				initMovies();
+			},
+			"/movies/:id/showings": (params) => {
+				const id = params.data.id;
+				renderHtml(movieShowings, "content");
+				initShowings(id);
 			},
 		})
 		.notFound(() => {
