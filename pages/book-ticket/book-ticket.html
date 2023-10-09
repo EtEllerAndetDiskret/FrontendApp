@@ -12,11 +12,12 @@
         <h1>Vælg venligst den dato du vil se film:</h1>
         <div class="date-time">
             <label for="date">Dato:</label>
-            <input type="date" id="date" name="date">
-            
+            <input type="date" id="date" name="date" required>
         </div>
+        <script> const currentDate = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', currentDate);</script>
         <br>
-        <a href="/pages/theater/cinemaseat.html" class="button">Book billet</a>
+        <a href="/calender" class="button">Book billet</a>
     </div>
 </body>
 </html>
