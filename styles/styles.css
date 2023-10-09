@@ -90,9 +90,12 @@
 	width: 57%;
 }
 #header-data {
+	color: white;
+	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+		1px 1px 0 black;
 	position: absolute;
-	bottom: 15px;
-	right: 53vh;
+	top: 10%;
+	left: -45%;
 	text-align: right;
 }
 #poster-and-genre {
@@ -107,7 +110,7 @@
 #bio {
 	font-size: 25px;
 	position: relative;
-	width: 70%;
+	width: 50%;
 	margin: 2em;
 }
 #hero-container {
