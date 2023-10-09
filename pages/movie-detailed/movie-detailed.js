@@ -15,15 +15,15 @@ export async function initMovieDetailed(id) {
 				<div id="blur-overlay"></div>
 				<div id="text-area">
 					<p id="title">${movie.title}</p>
-					<p id="header-data">
-						IMDb: ${movie.imdbRating}/10 <br />
-						${movie.released} <br />
-						${movie.runtime}
-					</p>
 				</div>
 			</div>
 		</div>
 		<div id="poster-and-genre">
+		<p id="header-data">
+			IMDb: ${movie.imdbRating}/10 <br />
+			${movie.released} <br />
+			${movie.runtime}
+		</p>
 			<img
 				id="poster"
 				src=${movie.poster}
