@@ -1,0 +1,179 @@
+@media print {
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+    }
+    
+    .confirmation {
+        max-width: 1000px; /* Adjusted width */
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1, h3 {
+        color: #FF6F61;
+    }
+    
+    .buyer-info, .billing-info, .movie-content {
+        margin-bottom: 20px;
+        margin: 0;
+        border-top: 1px solid #ccc;
+    }
+    
+    .buyer-info p strong, .billing-info p strong, .movie-info p strong {
+        font-weight: bold;
+    }
+    
+    .billing-info {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+    
+    .billing-info h2 {
+        margin-bottom: 10px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+    
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    
+    
+    .movie-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .movie-info {
+        width: 65%; /* Adjusted width */
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+    
+    .movie-poster {
+        width: 30%; /* Adjusted width */
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+        text-align: right;
+        padding-right: 20px;
+        margin-top: 5px;
+    }
+    
+    .movie-poster img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .contact-link {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    button, a.button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    
+    button {
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    
+    a.button {
+        background-color: #fff;
+        border: 1px solid #007bff;
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    .footer-info{
+        border-top: 1px solid #ccc;
+        text-align: center;
+    
+    }
+    
+    .confirmation-title {
+        margin-bottom: 10px;
+        font-size: 2em;
+        color: #FF6F61;
+    }
+    
+    .action-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+    
+    .back-to-home {
+        background-color: #fff;
+        border: 1px solid #FF6F61;
+        color: #FF6F61;
+        text-decoration: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+    .back-to-home:hover {
+        background-color: #FF6F61;
+        color: #fff;
+    }
+    
+    .footer-info p {
+        margin: 10px 0;
+    }
+    .movie-button {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    }
+    .details-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .personal-details, .billing-details {
+        flex: 0 0 46%; /* Adjust width as needed, leaving space for margins */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        /* background-color: #f9f9f9; */ 
+        margin-bottom: 20px;
+    }
+    
+    .personal-details h2, .billing-details h2 {
+        color: #FF6F61;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    .personal-details p, .billing-details p {
+        margin: 10px 0;
+        font-size: 1em;
+    }
+    
+}
