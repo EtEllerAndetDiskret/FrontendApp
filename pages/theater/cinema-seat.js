@@ -15,8 +15,8 @@ async function loadCinemaSeats() {
   async function getUser() {
     const res = await fetch(`${API_URL}/members/user1`);
     const user1 = await res.json();
-    console.log('getUser()', user1);
-  };
+    console.log("getUser()", user1);
+  }
   const getReservations = async () => {
     const res = await fetch(`${API_URL}/reservations/user1`);
     const reservations = await res.json();
@@ -24,31 +24,32 @@ async function loadCinemaSeats() {
     return reservations;
   };
   const reservations = getReservations();
-  console.log('reservations', reservations);
+  console.log("reservations", reservations);
   const user = await getUser();
-  console.log('user', user);
+  console.log("user", user);
 
-
+  // Call the generateSeats function to generate the seats
+  generateSeats();
 
   const cinemas = {
-    "1": {
+    1: {
       row: 25,
       column: 16,
     },
-    "2": {
+    2: {
       row: 20,
       column: 12,
     },
-  }
+  };
 
   const sendSeatInfo = async (seatInfo) => {
     const URL = `${API_URL}/reservations`;
     const username = await getUser();
     const reservationRequest = {
-      "movieId": 1,
-      "userName": `${username?.username}`,
-      "date": "2023-12-22",
-      "seats": seatInfo,
+      movieId: 1,
+      userName: `${username?.username}`,
+      date: "2023-12-22",
+      seats: seatInfo,
     };
     const fetchOptions = {};
     fetchOptions.method = "POST";
@@ -56,7 +57,6 @@ async function loadCinemaSeats() {
     fetchOptions.body = JSON.stringify(reservationRequest);
     try {
       await fetch(URL, fetchOptions).then(handleHttpErrors);
-    
     } catch (ex) {
       const errorMsg = ex.apiError ? ex.apiError.message : ex.message;
       console.log(errorMsg);
@@ -77,7 +77,7 @@ async function loadCinemaSeats() {
         // Create a seat element
         //const reservations = await getReservations();
         //if(`${String.fromCharCode(64 + i)}${j}` === reservations[0].seats[0]){
-      
+
         const seat = document.createElement("div");
         seat.classList.add("seat");
 
@@ -125,7 +125,7 @@ async function loadCinemaSeats() {
             confirmBtn.addEventListener("click", () => {
               // Log the selected seat numbers to the console
               console.log("selected seat number", selectedSeatNumbers);
-            
+
               sendSeatInfo(selectedSeatNumbers);
 
               // Reset the seat numbers object
@@ -159,8 +159,6 @@ async function loadCinemaSeats() {
     }
   }
   console.log(seatNumbers);
-  // Call the generateSeats function to generate the seats
-  generateSeats();
 
   // Get all the seat elements
   const seats = document.querySelectorAll(".seat");
