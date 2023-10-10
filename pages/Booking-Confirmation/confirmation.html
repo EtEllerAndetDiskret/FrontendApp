@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styless.css">
     <link rel="stylesheet" href="print-styles.css" media="print">
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+
+
 </head>
 <body>
     <div class="confirmation">
@@ -23,9 +30,10 @@
                 <p><strong>Total Price:</strong> $65.00</p>
                 <p><strong>Payment Method:</strong> Visa **** **** **** 1234</p>
             </div>
-        </div>
+            </div>
+
         
-        <div class="movie-content">
+        <div class="movie-content" id="movie-content">
 
             
             <div class="movie-info">
@@ -40,7 +48,7 @@
                 <div class="qr-code-container" id="ticket-qr-code"></div>
                 <div class="movie-button">
                     <button onclick="window.print()">Print</button>
-                    <button onclick="downloadPage()">Download</button>
+                    <button onclick="capturePage()">Download ticket</button>
                 </div>
                 
 
@@ -103,20 +111,74 @@
     </script>
     
 
-    <!-- Doesnt work as intended -->
     <script>
     function downloadPage() {
-        var confirmationHTML = document.documentElement.outerHTML;
-        var blob = new Blob([confirmationHTML], { type: 'text/html' });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'booking_confirmation.html';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-    }
-    </script>
+    // Clear the QR code container
+    var qrCodeContainer = document.getElementById("ticket-qr-code");
+    qrCodeContainer.innerHTML = '';
+
+    // Generate and add the new QR code
+    var ticketInfo = {
+        bookingID: "321412421",
+        movie: "The Movie Title",
+        date: "October 10, 2023",
+        time: "2:30 PM",
+        room: "Room A",
+        seats: "A1, A2, A3"
+    };
+
+    var qr = new QRCode(qrCodeContainer, {
+        text: JSON.stringify(ticketInfo),
+        width: 200,
+        height: 200,
+    });
+
+    // Download the page
+    var confirmationHTML = document.documentElement.outerHTML;
+    var blob = new Blob([confirmationHTML], { type: 'text/html' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'booking_confirmation.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+<script>
+function capturePage() {
+    var element = document.getElementById('movie-content');
+    element.scrollIntoView();
+
+    // Remove buttons temporarily
+    var buttons = document.querySelectorAll('.movie-button button');
+    buttons.forEach(function(button) {
+        button.style.display = 'none';
+    });
+
+    setTimeout(function() {
+        domtoimage.toPng(element)
+            .then(function (dataUrl) {
+                var img = new Image();
+                img.src = dataUrl;
+                var imgWindow = window.open('', '_blank');
+                imgWindow.document.write('<img src="' + dataUrl + '"/>');
+
+                // Restore buttons after capturing the image
+                buttons.forEach(function(button) {
+                    button.style.display = 'inline-block';
+                });
+            })
+            .catch(function (error) {
+                console.error('Error capturing middle part:', error);
+            });
+    }, 500); // Delay of 1 second (1000 milliseconds)
+}
+
+</script>
+
+
+
 </body>
 </html>
