@@ -5,11 +5,16 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
+import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
+
 
 window.addEventListener("load", async () => {
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
 	const allMovies = await loadHtml(
 		"./pages/movie-overview/movie-overview.html"
+	);
+	const cinemaSeats = await loadHtml(
+		"./pages/theater/cinemaseat.html"
 	);
 	const movieDetailed = await loadHtml(
 		"./pages/movie-detailed/movie-detailed.html"
@@ -41,6 +46,10 @@ window.addEventListener("load", async () => {
 				renderHtml(allMovies, "content");
 				initMovies();
 			},
+			"/cinemaseats": () => {
+				renderHtml(cinemaSeats, "content");
+				initCinemaSeats();
+			}
 		})
 		.notFound(() => {
 			renderHtml(templateNotFound, "content");
