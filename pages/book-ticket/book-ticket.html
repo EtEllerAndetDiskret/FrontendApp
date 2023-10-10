@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
-    <link rel="stylesheet" href="book-ticket.css">
+    <link rel="stylesheet" href="./styles/book-ticket.css">
 </head>
 <body>
-    <div class="background"></div>
-    <div class="booking-container">
-        <h1>Vælg venligst den dato du vil se film:</h1>
-        <div class="date-time">
-            <label for="date">Dato:</label>
-            <input type="date" id="date" name="date" required>
+    <div class="template">
+        <div class="background">
+            <img src="/pages/book-ticket/BiografSædder.jpg" width="1220" height="700">
         </div>
-        <script> const currentDate = new Date().toISOString().split('T')[0];
-            document.getElementById('date').setAttribute('min', currentDate);</script>
-        <br>
-        <a href="/calender" class="button">Book billet</a>
+        <div class="booking-container">
+            <h1>Vælg venligst den dato du vil se film:</h1>
+            <div class="date-time">
+                <label for="date">Dato:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <script> const currentDate = new Date().toISOString().split('T')[0];
+                document.getElementById('date').setAttribute('min', currentDate);</script>
+            <br>
+            <a href="#/movies" class="button">Book billet</a>
+            <a style src="book-ticket.css"></a>
+        </div>
     </div>
 </body>
 </html>

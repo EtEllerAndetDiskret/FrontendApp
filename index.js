@@ -6,7 +6,7 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
 import{initCalender} from "./pages/book-ticket/book-ticket.js";
-import { Navigo } from "./navigo.js";
+
 
 window.addEventListener("load", async () => {
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
@@ -46,7 +46,7 @@ window.addEventListener("load", async () => {
 				renderHtml(allMovies, "content");
 				initMovies();
 			},
-			"/calender": ()=> {
+			"/calender": () => {
 				renderHtml(calender,"content");
 				initCalender();
 			}
