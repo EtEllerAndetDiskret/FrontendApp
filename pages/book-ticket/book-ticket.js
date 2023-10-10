@@ -1,12 +1,12 @@
-import { API_URL } from "../../settings";
+import { API_URL } from "../../settings.js";
 
 export async function initCalender() {
     await loadCalender();
 }
 
 async function loadCalender(){
-    const calender = await fetch(API_URL + "/calender").then((res) => res.json());
-    console.log(calender);
+    const calender = await fetch(API_URL + "/showings").then((res) => res.json());
+
 
 
 document.addEventListener("DOMContentLoaded",function() {
