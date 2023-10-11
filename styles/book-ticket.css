@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 10vh;
+    height: 10vh;
     margin: 0;
 }
 
@@ -61,12 +62,14 @@ input[type="date"] {
     color: #fff; 
     text-decoration: none;
     border-radius: 1px;
+    border-radius: 1px;
     transition: background-color 0.3s;
 }
 
 .button:hover {
     background-color: #000000; 
 }
+
 
 
 
