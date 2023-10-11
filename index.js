@@ -6,68 +6,70 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
 import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
-
-
+import { initLogin } from "./pages/login/login.js";
 window.addEventListener("load", async () => {
-	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
-	const allMovies = await loadHtml(
-		"./pages/movie-overview/movie-overview.html"
-	);
-	const cinemaSeats = await loadHtml(
-		"./pages/theater/cinemaseat.html"
-	);
-	const movieDetailed = await loadHtml(
-		"./pages/movie-detailed/movie-detailed.html"
-	);
+  const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
+  const allMovies = await loadHtml(
+    "./pages/movie-overview/movie-overview.html"
+  );
+  const cinemaSeats = await loadHtml("./pages/theater/cinemaseat.html");
+  const movieDetailed = await loadHtml(
+    "./pages/movie-detailed/movie-detailed.html"
+  );
+  const login = await loadHtml("./pages/login/login.html");
 
-	const router = new Navigo("/", { hash: true });
-	//Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
-	window.router = router;
+  const router = new Navigo("/", { hash: true });
+  //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
+  window.router = router;
 
-	router
-		.hooks({
-			before(done, match) {
-				setActiveLink("menu", match.url);
-				done();
-			},
-		})
-		.on({
-			"/": () =>
-				(document.getElementById("content").innerHTML = `
+  router
+    .hooks({
+      before(done, match) {
+        setActiveLink("menu", match.url);
+        done();
+      },
+    })
+	  .on({
+		  "/": () =>
+		  (document.getElementById("content").innerHTML = `
         <h2>Welcome, to the future of cinema</h2>
         <p>Noget mere text der sikkert er super godt :)</p>
         `),
-			"/movies/:id": (params) => {
-				const id = params.data.id;
-				renderHtml(movieDetailed, "content");
-				initMovieDetailed(id);
-			},
-			"/movies": () => {
-				renderHtml(allMovies, "content");
-				initMovies();
-			},
-			"/cinemaseats": () => {
-				renderHtml(cinemaSeats, "content");
-				initCinemaSeats();
-			}
-		})
-		.notFound(() => {
-			renderHtml(templateNotFound, "content");
-		})
-		.resolve();
+		  "/movies/:id": (params) => {
+			  const id = params.data.id;
+			  renderHtml(movieDetailed, "content");
+			  initMovieDetailed(id);
+		  },
+		  "/movies": () => {
+			  renderHtml(allMovies, "content");
+			  initMovies();
+		  },
+		  "/cinemaseats": () => {
+			  renderHtml(cinemaSeats, "content");
+			  initCinemaSeats();
+		  },
+		  "/login": () => {
+			  renderHtml(login, "content");
+			  initLogin();
+		  }
+	  })
+    .notFound(() => {
+      renderHtml(templateNotFound, "content");
+    })
+    .resolve();
 });
 
 window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-	alert(
-		"Error: " +
-			errorMsg +
-			" Script: " +
-			url +
-			" Line: " +
-			lineNumber +
-			" Column: " +
-			column +
-			" StackTrace: " +
-			errorObj
-	);
+  alert(
+    "Error: " +
+      errorMsg +
+      " Script: " +
+      url +
+      " Line: " +
+      lineNumber +
+      " Column: " +
+      column +
+      " StackTrace: " +
+      errorObj
+  );
 };
