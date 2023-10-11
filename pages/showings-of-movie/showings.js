@@ -24,42 +24,45 @@ export async function initShowings(id) {
 }
 
 function setupDays(movie) {
-    const processedDays = new Map(); // Use a Map to track processed days
-  
-    // Parse the date strings into Date objects before sorting
-    const sortedShowings = movie.showings.map(showing => ({
-    //...showing is a spread operator, effectively creating a new object where the string representation of start has become a Date object
-      ...showing,
-      start: new Date(showing.start),
-    })).sort((a, b) => a.start - b.start);
-  
-    console.log(sortedShowings);
-  
-    for (const showing of sortedShowings) {
-      const start = showing.start; 
-      const dateKey = `${start.getDate()} / ${start.getMonth()}`;
-  
-      // Check if the date hasn't been processed yet
-      if (!processedDays.has(dateKey)) {
-        // Perform your action for this day
-        addDivForDay(dateKey, showing);
-  
-        // Mark the day as processed in the Map
-        processedDays.set(dateKey, true);
-      }
-      document.getElementById("day_" + dateKey).innerHTML += 
-      `
+	const processedDays = new Map(); // Use a Map to track processed days
+
+	// Parse the date strings into Date objects before sorting
+	const sortedShowings = movie.showings
+		.map((showing) => ({
+			//...showing is a spread operator, effectively creating a new object where the string representation of start has become a Date object
+			...showing,
+			start: new Date(showing.start),
+		}))
+		.sort((a, b) => a.start - b.start);
+
+	console.log(sortedShowings);
+
+	for (const showing of sortedShowings) {
+		const start = showing.start;
+		const dateKey = `${start.getDate()} / ${start.getMonth()}`;
+
+		// Check if the date hasn't been processed yet
+		if (!processedDays.has(dateKey)) {
+			// Perform your action for this day
+			addDivForDay(dateKey, showing);
+
+			// Mark the day as processed in the Map
+			processedDays.set(dateKey, true);
+		}
+		document.getElementById("day_" + dateKey).innerHTML += `
       <div class="showing">
-          ${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} <br />
+          ${start.getHours().toString().padStart(2, "0")}:${start
+			.getMinutes()
+			.toString()
+			.padStart(2, "0")} <br />
           Sal ${showing.hallId}
       </div>
-      `
-    }
-  }
-  
+      `;
+	}
+}
+
 function addDivForDay(day, showing) {
 	document.getElementById("schema-container").innerHTML += `
 	<div class="day" id="day_${day}">${day}
     </div>`;
-    
 }
