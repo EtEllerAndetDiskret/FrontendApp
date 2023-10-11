@@ -1,4 +1,4 @@
-export const API_URL = "http://localhost:8080/api";
+export const API_URL = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8080/api" : "https://kinoapp.azurewebsites.net/api";
 
 export const FETCH_NO_API_ERROR =
 	" (Is the API online or did the endpoint exists ?)";
