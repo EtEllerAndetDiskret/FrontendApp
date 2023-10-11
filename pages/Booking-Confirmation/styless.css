@@ -136,8 +136,8 @@
 
     .back-to-home {
         background-color: #fff;
-        border: 1px solid #FF6F61;
-        color: #FF6F61;
+        border: 1px solid #0b0a0a;
+        color: #0b0a0a;
         text-decoration: none;
         border-radius: 8px;
         padding: 10px 20px;
@@ -146,7 +146,7 @@
     }
 
     .back-to-home:hover {
-        background-color: #FF6F61;
+        background-color: #0b0a0a;
         color: #fff;
     }
 
