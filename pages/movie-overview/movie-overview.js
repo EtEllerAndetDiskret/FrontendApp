@@ -4,6 +4,7 @@ export async function initMovies() {
 	await loadMovies();
 }
 
+
 async function loadMovies() {
 	const movies = await fetch(API_URL + "/movies").then((res) => res.json());
 	console.log(movies);
