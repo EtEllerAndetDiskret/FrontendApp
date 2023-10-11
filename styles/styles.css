@@ -6,11 +6,6 @@
 	--header-height: 40vh;
 }
 
-#hero-container {
-	position: relative;
-	min-height: fit-content;
-}
-
 .nav-btn {
 	color: black;
 	border-radius: 5px;
@@ -24,4 +19,15 @@ a {
 .nav-btn:hover {
 	background-color: hsl(194, 63%, 60%);
 	cursor: pointer;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+#content {
+	margin-top: 65px;
 }
