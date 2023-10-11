@@ -5,23 +5,20 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
-import { initShowings } from "./pages/showings-of-movie/showings.js";
-import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
-
+import { initShowings } from "./pages/showings-of-movie/showings-overview.js";
+import { initCinemaSeats } from "./pages/theater/choose-seats.js";
 
 window.addEventListener("load", async () => {
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
 	const allMovies = await loadHtml(
 		"./pages/movie-overview/movie-overview.html"
 	);
-	const cinemaSeats = await loadHtml(
-		"./pages/theater/cinemaseat.html"
-	);
+	const chooseSeats = await loadHtml("./pages/theater/choose-seats.html");
 	const movieDetailed = await loadHtml(
 		"./pages/movie-detailed/movie-detailed.html"
 	);
 	const movieShowings = await loadHtml(
-		"./pages/showings-of-movie/showings.html"
+		"./pages/showings-of-movie/showings-overview.html"
 	);
 
 	const router = new Navigo("/", { hash: true });
@@ -55,10 +52,10 @@ window.addEventListener("load", async () => {
 				renderHtml(movieShowings, "content");
 				initShowings(id);
 			},
-			"/cinemaseats": () => {
-				renderHtml(cinemaSeats, "content");
-				initCinemaSeats();
-			}
+			"/showing/:id": (params) => {
+				renderHtml(chooseSeats, "content");
+				initCinemaSeats(params.data.id);
+			},
 		})
 		.notFound(() => {
 			renderHtml(templateNotFound, "content");
