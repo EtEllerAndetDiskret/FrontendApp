@@ -30,7 +30,10 @@ export async function initMovieDetailed(id) {
 			/>
 			<p>${movie.genre}</p>
 			<p>Rating: ${movie.rated}</p>
-		</div>
+			<div id="find-btn-container">
+				<div id="find-showings">Find showings</div>
+			</div>
+			</div>
 		<div id="bio">
         ${movie.plot} <br />
 			<br />

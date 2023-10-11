@@ -6,6 +6,9 @@
 		1px 1px 0 black;
 	height: var(--header-height);
 }
+#movie-details{
+	height: 100%;
+}
 #movie-details #blur-overlay {
 	position: absolute;
 	top: 0;
@@ -42,16 +45,34 @@
 }
 #poster-and-genre {
 	position: absolute;
+	height: 100%;
 	right: 10vh;
 	top: 25vh;
 	text-align: center;
 }
 #poster {
-	height: 60%;
+	width: 90%;
 }
 #bio {
 	font-size: 25px;
 	position: relative;
 	width: 50%;
 	margin: 2em;
+}
+#find-btn-container{
+	position: fixed;
+	bottom: 15px;
+	right: 35px;
+	display: flex;
+	justify-content: right;
+	width: 100%;
+}
+#find-showings{
+	margin-right: 100px;
+	border-radius: 5px;
+	background-color: hsl(194, 63%, 70%);
+	padding: 10px;
+	position: absolute;
+	bottom: 15px;
+
 }
