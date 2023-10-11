@@ -10,3 +10,18 @@
 	position: relative;
 	min-height: fit-content;
 }
+
+.nav-btn {
+	color: black;
+	border-radius: 5px;
+	background-color: hsl(194, 63%, 70%);
+	padding: 10px;
+}
+a {
+	text-decoration: none;
+}
+
+.nav-btn:hover {
+	background-color: hsl(194, 63%, 60%);
+	cursor: pointer;
+}

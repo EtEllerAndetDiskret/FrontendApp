@@ -50,13 +50,15 @@ function setupDays(movie) {
 			processedDays.set(dateKey, true);
 		}
 		document.getElementById("day_" + dateKey).innerHTML += `
-      <div class="showing">
+    <a href="#/showings/${showing.id}">
+      <div class="nav-btn showing">
           ${start.getHours().toString().padStart(2, "0")}:${start
 			.getMinutes()
 			.toString()
 			.padStart(2, "0")} <br />
           Sal ${showing.hallId}
       </div>
+    </a>
       `;
 	}
 }
