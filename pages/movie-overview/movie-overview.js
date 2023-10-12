@@ -17,14 +17,14 @@ async function loadMovies() {
                 />
                 <div id="blur-overlay">
                     <div id="banner-container">
-                        <a href="#/movies/${movie.imdbID}"><div class="banner" id="read-more">Læs mere</div></a>
-                        <a href="#/book-ticket/${movie.id}"><div class="banner" id="find-ticket">Find billet</div></a>
+                        <a href="#/movies/${movie.imdbID}"><div class="banner" id="read-more">Read more</div></a>
+                        <a href="#/movies/${movie.imdbID}/showings/"><div class="banner" id="find-ticket">Find showings</div></a>
                     </div>
                 </div>
             </div>
             <p id="details">
-                <b>Title:</b> ${movie.title} (${movie.year}) <br />
-                <b>Genre: </b> ${movie.genre}
+                <b>${movie.title} (${movie.year}) </b><br />
+                ${movie.genre}
             </p>
         </div>
         `
