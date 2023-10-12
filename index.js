@@ -37,11 +37,12 @@ window.addEventListener("load", async () => {
       },
     })
 	  .on({
-		  "/": () =>
+		  "/": () => {
 		  (document.getElementById("content").innerHTML = `
         <h2>Welcome, to the future of cinema</h2>
         <p>Noget mere text der sikkert er super godt :)</p>
-        `),
+        `), initLogin();},
+		  
 		  "/movies/:id": (params) => {
 			  const id = params.data.id;
 			  renderHtml(movieDetailed, "content");
@@ -55,10 +56,10 @@ window.addEventListener("load", async () => {
 			  renderHtml(cinemaSeats, "content");
 			  initCinemaSeats();
 		  },
-		  "/login": () => {
-			  renderHtml(login, "content");
-			  initLogin();
-		  }
+		//   "/login": () => {
+		// 	  renderHtml(login, "content");
+		// 	  initLogin();
+		//   }
 	  })
     .notFound(() => {
       renderHtml(templateNotFound, "content");

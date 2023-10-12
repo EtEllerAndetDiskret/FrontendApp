@@ -6,7 +6,7 @@ import { handleHttpErrors } from '../../utils.js';
 
 export async function initLogin() {
     await login();
-    console.log("initlogin virker")
+   
 }
 async function login() {
 
@@ -73,6 +73,10 @@ async function loginLogoutClick(evt) {
     //Logout was clicked
     clearLoginDetails();
   }
+    if (localStorage.getItem("token") !== null) {
+        console.log("token er ikke null")
+        window.router.navigate("/");
+    }
 }
 
 /**
@@ -108,7 +112,7 @@ function toogleLoginStatus(loggedIn) {
   loginContainer.style.display = loggedIn ? "none" : "block";
   logoutContainer.style.display = loggedIn ? "block" : "none";
   const statusTxt = loggedIn
-    ? `User: ${localStorage["user"]} (${localStorage["roles"]})`
+    ? `Hi! ${localStorage["user"]} `
     : "";
   userDetails.innerText = statusTxt;
 }

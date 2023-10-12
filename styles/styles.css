@@ -31,3 +31,12 @@ a {
 #content {
 	margin-top: 65px;
 }
+.input{
+	border-radius: 8px;
+	padding-left: .5rem;
+}
+.login-btn{
+	background-color: black;
+	color: white	;
+	border-radius: 8px;
+}
