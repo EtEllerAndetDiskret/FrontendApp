@@ -5,6 +5,7 @@ import { setActiveLink, loadHtml, renderHtml } from "./utils.js";
 
 import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
+import { initShowings } from "./pages/showings-of-movie/showings.js";
 import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
 
 
@@ -22,6 +23,9 @@ window.addEventListener("load", async () => {
 	const calender = await loadHtml(
 		"./pages/book-ticket/book-ticket.html"
 	)
+	const movieShowings = await loadHtml(
+		"./pages/showings-of-movie/showings.html"
+	);
 
 	const router = new Navigo("/", { hash: true });
 	//Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -48,6 +52,11 @@ window.addEventListener("load", async () => {
 			"/movies": () => {
 				renderHtml(allMovies, "content");
 				initMovies();
+			},
+			"/movies/:id/showings": (params) => {
+				const id = params.data.id;
+				renderHtml(movieShowings, "content");
+				initShowings(id);
 			},
 			"/cinemaseats": () => {
 				renderHtml(cinemaSeats, "content");
