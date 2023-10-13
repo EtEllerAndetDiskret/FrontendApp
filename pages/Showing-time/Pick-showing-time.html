@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Showtimes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is the placeholder code, replace with the real code</h1>
+    <h1>Movie Showtimes</h1>
+    <div id="movieList">
+        <!-- Movies and showtimes will be populated here -->
+    </div>
+
+    <script>
+        // Define a JavaScript object to store movie data
+        var movies = [
+            {
+                title: "Saw X",
+                showtimes: ["01:26", "05:26", "13:26","17:26","21:26"]
+            },
+            {
+                title: "The Terminator",
+                showtimes: ["13:45","18:30","22:15"]
+            },
+            {
+                title: "Meg 2",
+                showtimes: ["01:26", "05:26","13:45"]
+            }
+        ];
+
+        // Function to generate the HTML for the movie list
+        function generateMovieList() {
+            var movieListElement = document.getElementById("movieList");
+
+            movies.forEach(function(movie) {
+                var movieDiv = document.createElement("div");
+                movieDiv.innerHTML = "<h2>" + movie.title + "</h2><p>Showtimes: " + movie.showtimes.join(', ') + "</p>";
+                movieListElement.appendChild(movieDiv);
+            });
+        }
+
+        // Call the function to generate the movie list
+        generateMovieList();
+    </script>
+</body>
+</html>
+

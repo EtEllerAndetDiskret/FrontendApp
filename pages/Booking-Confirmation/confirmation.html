@@ -1,0 +1,78 @@
+<div class="template">
+  <div id="confirmation-details">
+    <div class="confirmation">
+      <h1>Booking Confirmation</h1>
+      <h3>
+        Ticket Confirmation #: 321412421 (generate confirmation number/booking
+        id)
+      </h3>
+      <div class="details-container">
+        <div class="personal-details">
+          <h2>Personal Details</h2>
+          <p><strong>Name:</strong> Sadek Al</p>
+          <p><strong>Email:</strong> Sade...@hotmail.com</p>
+        </div>
+        <div class="billing-details">
+          <h2>Billing Details</h2>
+          <p><strong>Total Price:</strong> $65.00</p>
+          <p><strong>Payment Method:</strong> Visa **** **** **** 1234</p>
+        </div>
+      </div>
+
+      <div class="movie-content" id="movie-content">
+        <div class="movie-info">
+          <div class="ticket-icon">
+            <img src="/pages/images/ticket-icon.jpeg" alt="Ticket Icon" />
+          </div>
+          <p><strong>Movie:</strong> Avengers: Endgame (3h 2m)</p>
+          <p><strong>Date:</strong> October 10, 2023</p>
+          <p><strong>Time:</strong> 2:30 PM</p>
+          <p><strong>Room:</strong> Room A</p>
+          <p><strong>Seats:</strong> B:02, B:04, B:06</p>
+          <div class="qr-code-container" id="ticket-qr-code"></div>
+          <div class="movie-button">
+            <button onclick="window.print()">Print</button>
+            <button onclick="capturePage()">Download ticket</button>
+          </div>
+        </div>
+        <div class="movie-poster">
+          <img src="/pages/images/avengers.jpeg" alt="Movie Poster" />
+        </div>
+      </div>
+      <div class="billing-info">
+        <h2>Purchase Details</h2>
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Child</td>
+            <td>2</td>
+            <td>$10.00 each</td>
+            <td>$20.00</td>
+          </tr>
+          <tr>
+            <td>Adult</td>
+            <td>3</td>
+            <td>$15.00 each</td>
+            <td>$45.00</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Total Price:</strong></td>
+            <td>$65.00</td>
+          </tr>
+        </table>
+      </div>
+      <div class="footer-info">
+        <p>
+          If you have any questions or need assistance, please
+          <a href="contact.html">contact us</a>.
+        </p>
+        <a href="/" class="back-to-home">Back to Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>

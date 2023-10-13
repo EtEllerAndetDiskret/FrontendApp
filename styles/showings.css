@@ -1,0 +1,39 @@
+#showings-container {
+	box-sizing: border-box;
+	margin: 2em;
+	min-height: 100%;
+}
+
+#schema-container {
+	display: flex;
+	width: 60%;
+	max-width: 60%;
+	min-height: 20%;
+	float: left;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#poster-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	float: right;
+	width: 40%;
+}
+
+#showing-poster {
+	position: absolute;
+	width: 70%;
+}
+.day {
+	display: inline-block;
+	border-right: 1px solid black;
+	min-width: 200px;
+	text-align: center;
+	padding: 15px;
+}
+
+.showing {
+	margin: 5px;
+}

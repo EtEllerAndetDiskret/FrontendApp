@@ -15,22 +15,25 @@ export async function initMovieDetailed(id) {
 				<div id="blur-overlay"></div>
 				<div id="text-area">
 					<p id="title">${movie.title}</p>
-					<p id="header-data">
-						IMDb: ${movie.imdbRating}/10 <br />
-						${movie.released} <br />
-						${movie.runtime}
-					</p>
 				</div>
 			</div>
 		</div>
 		<div id="poster-and-genre">
+		<p id="header-data">
+			IMDb: ${movie.imdbRating}/10 <br />
+			${movie.released} <br />
+			${movie.runtime}
+		</p>
 			<img
 				id="poster"
 				src=${movie.poster}
 			/>
 			<p>${movie.genre}</p>
 			<p>Rating: ${movie.rated}</p>
-		</div>
+			<div id="find-btn-container">
+				<a href="#/movies/${movie.imdbID}/showings"><div class="nav-btn" id="find-showings">Find showings</div></a>
+			</div>
+			</div>
 		<div id="bio">
         ${movie.plot} <br />
 			<br />
