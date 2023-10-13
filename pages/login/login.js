@@ -10,7 +10,7 @@ export async function initLogin() {
 }
 async function login() {
 
-    document.getElementById("buttons").onclick = handleFetchBtnClick;
+   
     document.getElementById("btn-login").onclick = loginLogoutClick;
     document.getElementById("btn-logout").onclick = loginLogoutClick;
 
@@ -25,20 +25,6 @@ async function login() {
     //If token existed, for example after a refresh, set UI accordingly
     toogleLoginStatus(token);
 
-    /**
-     * Provides support for error-responses given as JSON with status 4xx or 5xx
-     * Meant to be used as callback in the first .then in a fetch call using async-await
-     * @param res - Response object provided by fetch's first .then(..) method
-     */
-    async function handleHttpErrors(res) {
-        if (!res.ok) {
-            const errorResponse = await res.json();
-            const error = new Error(errorResponse.message);
-            error.apiError = errorResponse;
-            throw error;
-        }
-        return res.json();
-    }
 
     async function loginLogoutClick(evt) {
         evt.stopPropagation(); //prevents the event from bubling further up
