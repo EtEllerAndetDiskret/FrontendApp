@@ -10,9 +10,9 @@ import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
 
 import { initCalender } from "./pages/book-ticket/book-ticket.js";
 import { initLogin } from "./pages/login/login.js";
-
+import { initConfirmation } from "./pages/Booking-Confirmation/confirmation.js";
 window.addEventListener("load", async () => {
-  const login = await loadHtml("./pages/login/login.html");
+  
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
 	const allMovies = await loadHtml(
 		"./pages/movie-overview/movie-overview.html"
@@ -29,6 +29,10 @@ window.addEventListener("load", async () => {
 	const movieShowings = await loadHtml(
 		"./pages/showings-of-movie/showings.html"
 	);
+	const bookingConfirmatin = await loadHtml(
+		"./pages/Booking-Confirmation/confirmation.html"
+
+	)
 
 
   const router = new Navigo("/", { hash: true });
