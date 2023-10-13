@@ -7,6 +7,7 @@ import { initMovies } from "./pages/movie-overview/movie-overview.js";
 import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
 import { initShowings } from "./pages/showings-of-movie/showings.js";
 import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
+import { initCalender } from "./pages/book-ticket/book-ticket.js";
 
 
 window.addEventListener("load", async () => {
@@ -61,6 +62,15 @@ window.addEventListener("load", async () => {
 			"/cinemaseats": () => {
 				renderHtml(cinemaSeats, "content");
 				initCinemaSeats();
+			},
+			"/calender": () => {
+				renderHtml(calender, "content");
+				initCalender();
+			},
+			"/calender/:id/showings": (params) => {
+			const id = params.data.id;
+			renderHtml(calender, "content");
+			initCalender(id);
 			}
 		})
 		.notFound(() => {

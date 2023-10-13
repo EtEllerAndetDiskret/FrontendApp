@@ -1,4 +1,4 @@
-/*
+
 * {
     margin: 0;
     padding: 0;
@@ -6,32 +6,49 @@
 }
 
 body {
+	
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    height: 10vh;
-    height: 10vh;
-    margin: 0;
+	align-items: center;
+	z-index: 98;
+    
+	
+	
 }
 
 .background {
+	
     position: absolute;
-    background-image: url('/pages/book-ticket/BiografSædder.jpg'); 
-    background-size: cover;
-    background-color: black;
+
+    
+	background-repeat: no-repeat;
+	
+	background-size: cover;
     opacity: 0.5;  
-    z-index: 98;
+	
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/pages/book-ticket/BiografSædder.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+	z-index: -98;
 }
 
+
 .booking-container {
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.8);     
+	padding: 30px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	z-index: 98;
 }
-
 h1 {
     font-size: 36px;
     margin-bottom: 10px;
@@ -53,23 +70,19 @@ input[type="date"] {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 .button {
-    display: inline-block;
+    
     padding: 10px 20px;
     font-size: 20px;
     background-color: #474545; 
     color: #fff; 
     text-decoration: none;
     border-radius: 1px;
-    border-radius: 1px;
     transition: background-color 0.3s;
 }
-
 .button:hover {
     background-color: #000000; 
 }
-
 
 
 
