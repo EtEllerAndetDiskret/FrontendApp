@@ -1,6 +1,7 @@
 @import url(movie-detailed.css);
 @import url(movie-overview.css);
 @import url(showings.css);
+@import url(booking-confirmation.css);
 
 :root {
 	--header-height: 40vh;

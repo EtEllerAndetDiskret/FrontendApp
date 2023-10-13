@@ -8,8 +8,9 @@ import { initMovieDetailed } from "./pages/movie-detailed/movie-detailed.js";
 import { initShowings } from "./pages/showings-of-movie/showings.js";
 import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
 import { initLogin } from "./pages/login/login.js";
+import { initConfirmation } from "./pages/Booking-Confirmation/confirmation.js";
 window.addEventListener("load", async () => {
-  const login = await loadHtml("./pages/login/login.html");
+  
 	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
 	const allMovies = await loadHtml(
 		"./pages/movie-overview/movie-overview.html"
@@ -23,6 +24,10 @@ window.addEventListener("load", async () => {
 	const movieShowings = await loadHtml(
 		"./pages/showings-of-movie/showings.html"
 	);
+	const bookingConfirmatin = await loadHtml(
+		"./pages/Booking-Confirmation/confirmation.html"
+
+	)
 
 
   const router = new Navigo("/", { hash: true });
@@ -41,7 +46,7 @@ window.addEventListener("load", async () => {
 		  (document.getElementById("content").innerHTML = `
         <h2>Welcome, to the future of cinema</h2>
         <p>Noget mere text der sikkert er super godt :)</p>
-        `), initLogin();},
+        `); initLogin();},
 		  
 		  "/movies/:id": (params) => {
 			  const id = params.data.id;
@@ -56,6 +61,12 @@ window.addEventListener("load", async () => {
 			  renderHtml(cinemaSeats, "content");
 			  initCinemaSeats();
 		  },
+		  "/confirmation": () => {
+			renderHtml(bookingConfirmatin, "content");
+			initConfirmation();
+		},
+
+
 		//   "/login": () => {
 		// 	  renderHtml(login, "content");
 		// 	  initLogin();
