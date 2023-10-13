@@ -6,7 +6,7 @@ export async function initCalender(id) {
 }
 
 async function loadCalender(){
-    const calender = await fetch(API_URL + "/movies").then((res) => res.json());
+    const calender = await fetch(API_URL + "/showings").then((res) => res.json());
 
 // Create the parent container div
 const containerDiv = document.createElement('div');
@@ -67,7 +67,7 @@ bookBilletLink.href = '/pages/Showing-time/Pick-showing-time.html';
 bookBilletLink.textContent = 'Book billet';
 bookBilletLink.className = 'button';
 bookBilletLink.style.marginTop = '10px';
-//bookBilletLink.href = "/showings"
+
 
 // Append the elements to the content container
 contentContainer.appendChild(h1);
