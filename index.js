@@ -10,20 +10,17 @@ import { initCinemaSeats } from "./pages/theater/cinema-seat.js";
 import { initLogin } from "./pages/login/login.js";
 window.addEventListener("load", async () => {
   const login = await loadHtml("./pages/login/login.html");
-	const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
-	const allMovies = await loadHtml(
-		"./pages/movie-overview/movie-overview.html"
-	);
-	const cinemaSeats = await loadHtml(
-		"./pages/theater/cinemaseat.html"
-	);
-	const movieDetailed = await loadHtml(
-		"./pages/movie-detailed/movie-detailed.html"
-	);
-	const movieShowings = await loadHtml(
-		"./pages/showings-of-movie/showings.html"
-	);
-
+  const templateNotFound = await loadHtml("./pages/notFound/notFound.html");
+  const allMovies = await loadHtml(
+    "./pages/movie-overview/movie-overview.html"
+  );
+  const cinemaSeats = await loadHtml("./pages/theater/cinemaseat.html");
+  const movieDetailed = await loadHtml(
+    "./pages/movie-detailed/movie-detailed.html"
+  );
+  const movieShowings = await loadHtml(
+    "./pages/showings-of-movie/showings.html"
+  );
 
   const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -36,31 +33,28 @@ window.addEventListener("load", async () => {
         done();
       },
     })
-	  .on({
-		  "/": () => {
-		  (document.getElementById("content").innerHTML = `
+    .on({
+      "/": () => {
+			(document.getElementById("content").innerHTML = `
         <h2>Welcome, to the future of cinema</h2>
         <p>Noget mere text der sikkert er super godt :)</p>
-        `), initLogin();},
-		  
-		  "/movies/:id": (params) => {
-			  const id = params.data.id;
-			  renderHtml(movieDetailed, "content");
-			  initMovieDetailed(id);
-		  },
-		  "/movies": () => {
-			  renderHtml(allMovies, "content");
-			  initMovies();
-		  },
-		  "/cinemaseats": () => {
-			  renderHtml(cinemaSeats, "content");
-			  initCinemaSeats();
-		  },
-		//   "/login": () => {
-		// 	  renderHtml(login, "content");
-		// 	  initLogin();
-		//   }
-	  })
+        `);
+          initLogin();
+      },
+      "/movies/:id": (params) => {
+        const id = params.data.id;
+        renderHtml(movieDetailed, "content");
+        initMovieDetailed(id);
+      },
+      "/movies": () => {
+        renderHtml(allMovies, "content");
+        initMovies();
+      },
+      "/cinemaseats": () => {
+        renderHtml(cinemaSeats, "content");
+        initCinemaSeats();
+      }
+    })
     .notFound(() => {
       renderHtml(templateNotFound, "content");
     })
